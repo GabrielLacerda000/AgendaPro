@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Domain\Scheduling\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Service extends Model
+class Availability extends Model
 {
-    protected $fillable = ['professional_id', 'name', 'description', 'duration', 'price'];
+    protected $fillable = ['professional_id', 'day_of_week', 'start_time', 'end_time'];
 
     public function professional(): BelongsTo
     {
