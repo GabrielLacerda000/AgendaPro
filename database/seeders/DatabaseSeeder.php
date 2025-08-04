@@ -15,9 +15,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
+        User::updateOrCreate([
             'email' => 'test@example.com',
+        ], [
+            'name' => 'Test User',
+            'password' => bcrypt('password'),
+        ]);
+
+        $this->call([
+            ProfessionalSeeder::class,
+            PatientSeeder::class,
+            ServiceSeeder::class,
+            AvailabilitySeeder::class,
+            AppointmentSeeder::class,
         ]);
     }
 }
