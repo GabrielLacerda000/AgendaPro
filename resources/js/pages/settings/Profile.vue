@@ -9,6 +9,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
+import { Textarea } from '@/components/ui/textarea';
+import { Textarea } from '@/components/ui/textarea';
 import { type BreadcrumbItem, type User } from '@/types';
 
 interface Props {
@@ -31,6 +33,10 @@ const user = page.props.auth.user as User;
 const form = useForm({
     name: user.name,
     email: user.email,
+    speciality: user.speciality,
+    description: user.description,
+    location: user.location,
+    price: user.price,
 });
 
 const submit = () => {
@@ -67,6 +73,59 @@ const submit = () => {
                             placeholder="Email address"
                         />
                         <InputError class="mt-2" :message="form.errors.email" />
+                    </div>
+
+                    <div class="grid gap-2">
+                        <Label for="speciality">Speciality</Label>
+                        <Input
+                            id="speciality"
+                            class="mt-1 block w-full"
+                            v-model="form.speciality"
+                            required
+                            autocomplete="speciality"
+                            placeholder="Speciality"
+                        />
+                        <InputError class="mt-2" :message="form.errors.speciality" />
+                    </div>
+
+                    <div class="grid gap-2">
+                        <Label for="description">Description</Label>
+                        <Textarea
+                            id="description"
+                            class="mt-1 block w-full"
+                            v-model="form.description"
+                            required
+                            autocomplete="description"
+                            placeholder="Description"
+                        />
+                        <InputError class="mt-2" :message="form.errors.description" />
+                    </div>
+
+                    <div class="grid gap-2">
+                        <Label for="location">Location</Label>
+                        <Input
+                            id="location"
+                            class="mt-1 block w-full"
+                            v-model="form.location"
+                            required
+                            autocomplete="location"
+                            placeholder="Location"
+                        />
+                        <InputError class="mt-2" :message="form.errors.location" />
+                    </div>
+
+                    <div class="grid gap-2">
+                        <Label for="price">Price</Label>
+                        <Input
+                            id="price"
+                            type="number"
+                            class="mt-1 block w-full"
+                            v-model="form.price"
+                            required
+                            autocomplete="price"
+                            placeholder="Price"
+                        />
+                        <InputError class="mt-2" :message="form.errors.price" />
                     </div>
 
                     <div v-if="mustVerifyEmail && !user.email_verified_at">
