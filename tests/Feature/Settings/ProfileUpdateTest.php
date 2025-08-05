@@ -20,6 +20,10 @@ test('profile information can be updated', function () {
         ->patch('/settings/profile', [
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'speciality' => 'Test Speciality',
+            'description' => 'Test Description',
+            'location' => 'Test Location',
+            'price' => 123.45,
         ]);
 
     $response
@@ -30,6 +34,10 @@ test('profile information can be updated', function () {
 
     expect($user->name)->toBe('Test User');
     expect($user->email)->toBe('test@example.com');
+    expect($user->speciality)->toBe('Test Speciality');
+    expect($user->description)->toBe('Test Description');
+    expect($user->location)->toBe('Test Location');
+    expect($user->price)->toBe('123.45');
     expect($user->email_verified_at)->toBeNull();
 });
 

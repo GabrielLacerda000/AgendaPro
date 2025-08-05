@@ -19,6 +19,11 @@ const mainNavItems: NavItem[] = [
         href: '/settings/profile',
         icon: User,
     },
+    {
+        title: 'Professional',
+        href: '/settings/professional',
+        icon: User,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
