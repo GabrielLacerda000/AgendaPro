@@ -10,7 +10,6 @@ import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { Textarea } from '@/components/ui/textarea';
-import { Textarea } from '@/components/ui/textarea';
 import { type BreadcrumbItem, type User } from '@/types';
 
 interface Props {
