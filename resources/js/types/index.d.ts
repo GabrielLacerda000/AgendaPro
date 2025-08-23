@@ -33,6 +33,17 @@ export interface User {
     email_verified_at: string | null;
     created_at: string;
     updated_at: string;
+    professional?: Professional;
+}
+
+export interface Professional {
+    id: number;
+    user_id: number;
+    speciality: string;
+    description: string;
+    location: string;
+    created_at: string;
+    updated_at: string;
 }
 
 export type BreadcrumbItemType = BreadcrumbItem;

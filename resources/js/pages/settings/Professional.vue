@@ -11,10 +11,9 @@ import { useForm } from '@inertiajs/vue3';
 const props = defineProps<{ user: any }>();
 
 const form = useForm({
-    speciality: props.user.speciality,
-    description: props.user.description,
-    location: props.user.location,
-    price: props.user.price,
+    speciality: props.user.professional?.speciality,
+    description: props.user.professional?.description,
+    location: props.user.professional?.location,
 });
 
 function submit() {
@@ -45,10 +44,6 @@ function submit() {
                         <div class="grid gap-3">
                             <Label for="location">Location</Label>
                             <Input id="location" v-model="form.location" type="text" />
-                        </div>
-                        <div class="grid gap-3">
-                            <Label for="price">Price</Label>
-                            <Input id="price" v-model="form.price" type="number" />
                         </div>
                         <Button type="submit">Update</Button>
                     </div>
