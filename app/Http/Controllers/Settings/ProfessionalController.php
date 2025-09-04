@@ -11,8 +11,9 @@ class ProfessionalController extends Controller
 {
     public function edit(Request $request)
     {
+        // dd($request->user()->load('professional'));
         return Inertia::render('settings/Professional', [
-            'user' => $request->user(),
+            'user' => $request->user()->load('professional'),
         ]);
     }
 
